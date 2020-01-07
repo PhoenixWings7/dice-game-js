@@ -1,0 +1,28 @@
+body {
+    background-color: burlywood;
+}
+
+.dices {
+    display: flex;
+    justify-content: space-around;
+}
+
+.dice-div {
+    margin-top: 30px;
+}
+
+#buttons {
+    display: block;
+}
+
+.btn {
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.scores-area {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+}
