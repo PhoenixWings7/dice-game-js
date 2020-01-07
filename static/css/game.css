@@ -17,6 +17,7 @@
     border: solid crimson 2px;
     display: flex;
     justify-content: space-around;
+    
 }
 .player-1 {
     text-align: center;
@@ -24,7 +25,7 @@
     /* border: solid 2px lime ; */
     flex-basis: 2;
     order: 1;
-    align-content: center;
+    
 }
 .player-2 {
     text-align: center;
@@ -40,30 +41,29 @@
     order: 2;
     display: flex;
     flex-direction: column;
-    justify-content: start;
+    justify-content: flex-end;
 }
 
 .images {
-    /* position: relative; */
-    /* display: none; */
+    display: none;
     order: 1;
+    flex-basis: 1;
 }
 .buttons {
-    position: absolute;
-    top: 400px;
     margin-top: 40px;
     width: 150px;
     margin-right: auto;
     margin-left: auto;
     order: 2;
+    flex-basis: 1;
 }
 .buttons .btn {
     display: block;
     margin: 40px auto;
-    width: 90%;
+    width: 80%;
 }
 .images .image {
-    margin: 40px auto;
+    margin: 20px auto;
     border: solid 1px lime;
 }
 
