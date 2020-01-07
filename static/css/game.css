@@ -10,6 +10,7 @@
 }
 
 .container {
+    background-color: burlywood;
     margin-top: 60px;
     height: 600px;
     border: solid crimson 2px;
