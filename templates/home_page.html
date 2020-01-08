@@ -1,7 +1,29 @@
 {% extends 'layout.html' %}
 
 {% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/home_page.css') }}">
 <div class="container">
+    <div class="instruction">
+        <h2>
+            Dice Game playing instructions:
+        </h2>
+        <p>1. Tell me your names. You can enter them below this instruction.</p>
+        <p>2. Click the "Roll" button to roll dices. </p>
+        <p>3. You can roll dices <strong class="positive">as many times as you want</strong>
+            but be aware that <strong class="danager">you can lose your current round points any second!</strong></p>
+        <p>4. You <strong class="positive">gain extra points</strong> when:</p>
+        <ul>
+            <li>you roll two consecutive numbers (double points from this roll)</li>
+        </ul>
+        <p>5. You <strong class="danager">lose all points</strong> from current roll when:</p>
+        <ul>
+            <li>you roll a double</li>
+            <li>you roll a curse number (3)</li>
+            <li>you roll same two numbers you rolled in the previous roll</li>
+        </ul>
+        <p>6. You win when you reach between 100 and 110 points</p>
+        <p>7. You lose 40 points when you reach higher than 110</p>
+    </div>
     <form action="{{ url_for('game_page') }}" method="GET">
         <div class="form-group">
             <label for="player1">Player 1:</label>
