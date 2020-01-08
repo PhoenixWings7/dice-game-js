@@ -19,5 +19,6 @@ def game_page():
 
     return render_template('game_page.html', player1=player1, player2=player2)
 
+
 if __name__ == '__main__':
     app.run(debug=True)
