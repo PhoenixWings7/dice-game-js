@@ -1,41 +1,45 @@
 {% extends 'layout.html' %}
 
 {% block content %}
-<link rel="stylesheet" href="{{ url_for('static', filename='css/game_page.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/game.css') }}">
+<script src="{{ url_for('static', filename='js/game.js') }}" defer></script>
 <div class="container">
-    <div class="dices">
-        <div class="dice-div">
-            <img src="{{ url_for('static', filename='images/1.png') }}" id="dice1" class="dice">
-            <div class="scores player1 score-player-1">
-                <h3>{{ player1 }}</h3>
-                <h3>Score: <span id="player1-score"></span></h3>
-            </div>
-        </div>
-        <div id="buttons" class="dice-div">
-            <button id="roll" class="btn btn-success">Roll</button>
-            <button id="stand" class="btn btn-danger">Stand</button>
-        </div>
-        <div class="dice-div">
-            <img src="{{ url_for('static', filename='images/1.png') }}" id="dice2" class="dice">
-            <div class="scores player2 score-player-2">
-                <h3>{{ player2 }}</h3>
-                <h3>Score: <span id="player2-score"></span></h3>
-            </div>
-        </div>
 
+    <div class="player-1">
+        <div class="content">
+            <h3>{{ player1 }}</h3>
+            <h4>Score:</h4>
+            <div id="total-score-1">0</div>
+        </div>
+        <div class="current-score">
+            <h4>Round Score:</h4>
+            <div id="round-score-1">0</div>
+        </div>
+        
+    </div>
+    <div class="player-2">
+        <div class="content">
+            <h3>{{ player2 }}</h3>
+            <h4>Score:</h4>
+            <div id="total-score-2">0</div>
+        </div>
+        <div class="current-score">
+            <h4>Round Score:</h4>
+            <div id="round-score-2">0</div>
+        </div>
     </div>
 
- <!-- <div class="scores-area">
-        <div class="scores player1 score-player-1">
-            <h3>{{ player1 }}</h3>
-            <h3>Score: <span id="player1-score"></span></h3>
+    <div class="img-btns">
+        <div class="images">
+            <img src="../static/images/5.png" alt="one" class="image">
+            <img src="../static/images/2.png" alt="two" class="image">
         </div>
-
-        <div class="scores player2 score-player-2">
-            <h3>{{ player2 }}</h3>
-            <h3>Score: <span id="player2-score"></span></h3>
+        <div class="buttons">
+            <button class="btn btn-success">Roll</button>
+            <button class="btn btn-primary">Stand</button>
+            
         </div>
-    </div> -->
+    </div>
 </div>
 
 {% endblock %}

@@ -12,7 +12,7 @@
 .container {
     max-width: 940px;
     background-color: burlywood;
-    margin-top: 60px;
+    margin-top: 30px;
     height: 600px;
     border: solid crimson 2px;
     display: flex;
@@ -21,7 +21,7 @@
 }
 .player-1 {
     text-align: center;
-    text-transform: uppercase;
+    /* text-transform: uppercase; */
     /* border: solid 2px lime ; */
     flex-basis: 2;
     order: 1;
@@ -29,7 +29,7 @@
 }
 .player-2 {
     text-align: center;
-    text-transform: uppercase;
+    /* text-transform: uppercase; */
     /* border: 2px lime solid; */
     flex-basis: 2;
     order: 3;
@@ -45,12 +45,13 @@
 }
 
 .images {
-    display: none;
+    /* display: none; */
+    margin-bottom: 10px;
     order: 1;
     flex-basis: 1;
 }
 .buttons {
-    margin-top: 40px;
+    margin-top: 20px;
     width: 150px;
     margin-right: auto;
     margin-left: auto;
