@@ -31,6 +31,12 @@ let addToGlobalScore = (function () {
     }
 }) ();
 
+function highlightActivePlayer() {
+    let playersDivs = document.querySelectorAll('.content')
+    for (let playerDiv of playersDivs) {
+        playerDiv.classList.toggle('current-player');
+    }
+}
 
 //creating changeActivePlayer as a function and immediately calling (invoking) it so it can become an inner function
 //and use private variables stored in memory somewhere because of closures
@@ -40,6 +46,7 @@ let changeActivePlayer = (function () {
     return function (doChange, points = 0) {
         if (doChange) {
             addToGlobalScore(true, activePlayerNum, points);
+            highlightActivePlayer();
             if (activePlayerNum === 1) {
                 activePlayerNum = 2;
             }

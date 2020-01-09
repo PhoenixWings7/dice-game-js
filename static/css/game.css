@@ -75,3 +75,13 @@
 .current-score {
     margin-top: 230px;
 }
+.current-player {
+    background-color: rgb(246, 204, 150);
+    border-radius: 10px;
+    border: 1px dotted floralwhite;
+}
+
+.current-player h3 {
+    font-weight: bold;
+    color: green;
+}
