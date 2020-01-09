@@ -65,6 +65,10 @@ let addToCurrentScore = (function () {
         if (doAdd) {
             currentScore += points;
         }
+        //get active player and score element from DOM to change it's content
+        let activePlayerNum = changeActivePlayer(false);
+        const currentScoreDOM = document.getElementById(`round-score-${activePlayerNum}`);
+        currentScoreDOM.textContent = currentScore;
         return currentScore;
     }
 })();
@@ -73,10 +77,16 @@ let addToCurrentScore = (function () {
 //creating stand as a function to perform a few actions when user clicks 'stand' button
 //gets current points, adds them to global user score, resets them and changes score on the page
 function stand() {
+    //get current round score points
     let points = addToCurrentScore(false, false);
+    //get active player
     let activePlayer = changeActivePlayer(false);
 
+    //reset player's current score
+    addToCurrentScore(false, true);
+    //change player and add points to his/hers global score
     changeActivePlayer(true, points);
+    //reset the other player's current score
     addToCurrentScore(false, true);
 
     //change global score on the page
@@ -91,21 +101,43 @@ rollBtn.addEventListener('click', rollDice);
 standBtn.addEventListener('click', stand);
 
 
+function checkRules(dice1, dice2) {
+    if ((dice1 == 3) || (dice2 == 3)) {
+        //reset both player current scores and change player
+        addToCurrentScore(false, true);
+        changeActivePlayer(true);
+        addToCurrentScore(false, true);
+        return 0;
+    }
+    else if (dice1 == dice2) {
+        //reset both player current scores and change player
+        addToCurrentScore(false, true);
+        changeActivePlayer(true);
+        addToCurrentScore(false, true);
+        return 0;
+    }
+    else if (Math.abs(dice1-dice2) == 1) {
+        //double the points and return them
+        return (dice1 + dice2) * 2;
+    }
+    else {
+        //return points sum if nothing special happens
+        return dice1+dice2;
+    }
+}
+
 
 //
 function rollDice() {
     //define all needed variables or constants
-    let activePlayerNum = changeActivePlayer(false);
-    let currentScore = addToCurrentScore(false, false);
-    const currentScoreDOM = document.getElementById(`round-score-${activePlayerNum}`);
     const dice1 = Math.floor(Math.random() * 6) + 1,
           dice2 = Math.floor(Math.random() * 6) + 1;
-    let additionalPoints = dice1 + dice2;
 
-    //change current score on the page and in current score private function
-    currentScoreDOM.textContent = currentScore + additionalPoints;
-    addToCurrentScore(true, false, additionalPoints);
     //change dices' pictures
     firstDice.src = `../static/images/${String(dice1)}.png`;
     secondDice.src = `../static/images/${String(dice2)}.png`;
+    //check rules and get point sum
+    let points = checkRules(dice1, dice2);
+    //change current score on the page and in current score private function
+    addToCurrentScore(true, false, points);
 }
